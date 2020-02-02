@@ -1,9 +1,0 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Wayne Hayden's 336 Home page</title>
-    </head>
-    <body>
-        Hello World!
-    </body>
-</html>
