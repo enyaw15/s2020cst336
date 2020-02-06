@@ -2,3 +2,10 @@ header {
     Color : blue;
     text-align: center;
 }
+
+nav a {
+    color : blue;
+    text-decoration: none;
+    border: 20px;
+    text-align: center;
+}
