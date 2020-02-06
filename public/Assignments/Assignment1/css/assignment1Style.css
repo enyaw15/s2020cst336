@@ -27,3 +27,9 @@ body {
 	background-color: azure;
 	color: midnightblue;
  }
+ 
+ footer {
+     clear : left;
+     font-size: .8em;
+     color: aquamarine;
+ }
