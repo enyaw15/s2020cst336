@@ -24,7 +24,8 @@ figure, section {
 }
 
 section p{
-    width: 60%;
+    width: auto;
+    
 }
 
 body { 
