@@ -18,3 +18,8 @@ nav a:hover { /* pseudo class */
 	transition: .8s;
 	text-decoration: underline;
 }
+
+body { 
+	background-color: azure;
+	color: aqua;
+ }
