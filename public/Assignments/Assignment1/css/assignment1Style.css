@@ -38,3 +38,13 @@ body {
      font-size: .8em;
      color: darkcyan;
  }
+ 
+ span a {
+     color : midnightblue;
+     text-decoration: underline;
+ }
+ 
+ span a:hover {
+     color : blue;
+     transition: .5s;
+ }
