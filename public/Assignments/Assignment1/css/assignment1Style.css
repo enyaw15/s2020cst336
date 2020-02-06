@@ -23,6 +23,10 @@ figure, section {
     float: left;
 }
 
+section p{
+    width: 60%;
+}
+
 body { 
 	background-color: azure;
 	color: midnightblue;
