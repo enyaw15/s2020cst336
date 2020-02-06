@@ -12,3 +12,9 @@ nav a {
     padding: 100px;
     text-align: center;
 }
+
+nav a:hover { /* pseudo class */
+	color: purple;
+	transition: .8s;
+	text-decoration: underline;
+}
