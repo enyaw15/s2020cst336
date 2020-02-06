@@ -1,6 +1,8 @@
-header {
-    Color : blue;
+header , nav {
     text-align: center;
+}
+header h1, header h5 {
+    Color : blue;
 }
 
 nav a {
