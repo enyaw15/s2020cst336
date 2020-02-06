@@ -19,6 +19,10 @@ nav a:hover { /* pseudo class */
 	text-decoration: underline;
 }
 
+figure, section {
+    float: left;
+}
+
 body { 
 	background-color: azure;
 	color: midnightblue;
