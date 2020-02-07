@@ -51,3 +51,31 @@ body {
      color : blue;
      transition: .5s;
  }
+
+ #sourceLink {
+ 	color : mediumblue;
+ }
+
+ hr {
+ 	border: 1px dashed orange;
+ }
+
+h2 {
+	color: peru;
+}
+
+#htmlTitle{
+	color: orangered;
+}
+
+#cssTitle{
+	color : skyblue;
+}
+
+#jsTitle{
+	color: darkgoldenrod;
+}
+
+.internalLink {
+	color: blue;
+}
