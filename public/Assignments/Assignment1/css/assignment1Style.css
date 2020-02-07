@@ -16,9 +16,13 @@ nav a {
 nav a:hover { /* pseudo class */
 	color: purple;
 	transition: .8s;
-	text-decoration: underline;
 }
 
+#currentPage {
+    text-decoration: underline;
+    text-decoration: overline;
+    
+}
 figure, section {
     float: left;
 }
