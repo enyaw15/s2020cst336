@@ -22,12 +22,12 @@ nav a:hover { /* pseudo class */
     text-decoration: underline;
 }
 
-figure, section {
+figure {
     float: left;
 }
 
 section p{
-    width: 600px;
+    width: auto;
 }
 
 body { 
