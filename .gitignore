@@ -1,7 +1,7 @@
 #word docs
-.docx
-.docs
-.doc
+*.docx
+*.docs
+*.doc
 
 #C9
 .c9
