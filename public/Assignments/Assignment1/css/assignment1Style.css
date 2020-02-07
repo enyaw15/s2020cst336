@@ -2,7 +2,7 @@ header , nav {
     text-align: center;
 }
 header h1, header h4 {
-    Color : blue;
+    color : blue;
 }
 
 nav a {
@@ -20,6 +20,7 @@ nav a:hover { /* pseudo class */
 
 #currentPage {
     text-decoration: underline;
+    text-shadow: 1px 1px midnightblue;
 }
 
 figure {
