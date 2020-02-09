@@ -1,9 +1,11 @@
               
         var randomNumber = Math.floor(Math.random() * 99) + 1;
 
-       	var guesses = document.querySelector("#guesses");
+       	//var guesses = document.querySelector("#guesses");
+        //$("#guesses").html();
        	var lastResult = document.querySelector("#lastResult");
-       	var lowOrHi = document.querySelector("#lowOrHi");
+       	//var lowOrHi = document.querySelector("#lowOrHi");
+        //$("#lowOrHi")
 
        	var guessSubmit = document.querySelector(".guessSubmit");
        	var guessField = document.querySelector(".guessField");
@@ -26,14 +28,14 @@
                 {
                         if (guessCount == 1)
                         {
-                                guesses.innerHTML = "Previous guesses: ";
+                                $("#guesses").html("Previous guesses: ");
                         }
-                        guesses.innerHTML  += userGuess + " ";
+                        $("#guesses").append(userGuess + " ");
                         if(userGuess === randomNumber)
                         {
                                 lastResult.innerHTML = "Congratulations! You got it Right!";
                                 lastResult.style.backgroundColor = "green";
-                                lowOrHi.innerHTML = "";
+                                $("#lowOrHi").html("");
                                 gamesWon++;
                                 setGameOver();
                         }
@@ -49,11 +51,11 @@
                                 lastResult.style.backgroundColor = "red";
                                 if(userGuess < randomNumber)
                                 { 
-                                       lowOrHi.innerHTML = "Last guess was to low!";
+                                       $("#lowOrHi").html("Last guess was to low!");
                                 }
                                 else if(userGuess > randomNumber)
                                 {
-                                        lowOrHi.innerHTML = "Last guess was to high!";
+                                        $("#lowOrHi").html("Last guess was to high!");
                                 }
                         }
 
@@ -66,7 +68,9 @@
                 {
                         guessField.value = "";
                         guessField.focus(); 
-                        window.alert("Invalid Input");
+                        lastResult.innerHTML = "Error: Invalid Input";
+                        lastResult.style.backgroundColor = "green";
+                        lowOrHi.innerHTML = "Error: Invalid Input";
                 }
        		
        	}
@@ -103,5 +107,5 @@
                 wonLostDisplay.innerHTML = wonLostText;
         }
 
-guessSubmit.addEventListener("click",checkGuess);
+        guessSubmit.addEventListener("click",checkGuess);
         	
