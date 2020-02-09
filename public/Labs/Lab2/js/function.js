@@ -69,7 +69,7 @@
                         guessField.value = "";
                         guessField.focus(); 
                         lastResult.innerHTML = "Error: Invalid Input";
-                        lastResult.style.backgroundColor = "green";
+                        lastResult.style.backgroundColor = "orange";
                         lowOrHi.innerHTML = "Error: Invalid Input";
                 }
        		
