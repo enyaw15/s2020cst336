@@ -1,88 +1,107 @@
-var randomNumber = Math.floor(Math.random() * 99) + 1;
+              
+        var randomNumber = Math.floor(Math.random() * 99) + 1;
 
-        	var guesses = document.querySelector("#guesses");
-        	var lastResult = document.querySelector("#lastResult");
-        	var lowOrHi = document.querySelector("#lowOrHi");
+       	var guesses = document.querySelector("#guesses");
+       	var lastResult = document.querySelector("#lastResult");
+       	var lowOrHi = document.querySelector("#lowOrHi");
 
-        	var guessSubmit = document.querySelector(".guessSubmit");
-        	var guessField = document.querySelector(".guessField");
+       	var guessSubmit = document.querySelector(".guessSubmit");
+       	var guessField = document.querySelector(".guessField");
+       	var guessCount = 1;
 
-        	var guessCount = 1;
-        	var resetButton = document.querySelector("#reset");
-        	resetButton.style.display = "none";
+       	var resetButton = document.querySelector("#reset");
+       	resetButton.style.display = "none";
+       	guessField.focus();
 
-        	guessField.focus();
-
-        	console.log(randomNumber);
-
-        	function checkGuess()
-        	{
-        		var userGuess = Number(guessField.value);
-        		if (guessCount == 1)
-        		{
-        			guesses.innerHTML = "Previous guesses: ";
-        		}
-        		guesses.innerHTML  += userGuess + " ";
-
-        		if(userGuess === randomNumber)
-        		{
-        			lastResult.innerHTML = "Congratulations! You got it Right!";
-        			lastResult.style.backgroundColor = "green";
-        			lowOrHi.innerHTML = "";
-        			setGameOver();
-        		}
-        		else if (guessCount === 7)
-        		{
-        			lastResult.innerHTML = "Sorry, you lost!";
-        			setGameOver();
-        		}
-        		else
-        		{
-        			lastResult.innerHTML = "Wrong!";
-        			lastResult.style.backgroundColor = "red";
-        			if(userGuess < randomNumber)
-        			{
-        				lowOrHi.innerHTML = "Last guess was to low!";
-        			}
-        			else if(userGuess > randomNumber)
-        			{
-        				lowOrHi.innerHTML = "Last guess was to high!";
-        			}
-        		}
-
-        		guessCount++;
-        		guessField.value = "";
-        		guessField.focus();
-        	}
-
-                function setGameOver()
+        var gamesWon = 0;
+        var gamesLost = 0;
+        var wonLostDisplay = document.querySelector("#wonLostDisplay");
+        var wonLostText = ""
+        wonLostDisplay.innerHTML = wonLostText;
+       	
+        function checkGuess()
+       	{
+      		var userGuess = Number(guessField.value);
+                if(userGuess <= 99 && userGuess >= 0 && typeof userGuess == "number")
                 {
-                        guessField.disabled = true;
-                        guessSubmit.disabled = true;
-                        resetButton.style.display = "inline";
-                        resetButton.addEventListener("click", resetGame);
+                        if (guessCount == 1)
+                        {
+                                guesses.innerHTML = "Previous guesses: ";
+                        }
+                        guesses.innerHTML  += userGuess + " ";
+                        if(userGuess === randomNumber)
+                        {
+                                lastResult.innerHTML = "Congratulations! You got it Right!";
+                                lastResult.style.backgroundColor = "green";
+                                lowOrHi.innerHTML = "";
+                                gamesWon++;
+                                setGameOver();
+                        }
+                        else if (guessCount === 7)
+                        {
+                                lastResult.innerHTML = "Sorry, you lost!";
+                                gamesLost++;
+                                setGameOver();
+                        }
+                        else
+                        {
+                                lastResult.innerHTML = "Wrong!";
+                                lastResult.style.backgroundColor = "red";
+                                if(userGuess < randomNumber)
+                                { 
+                                       lowOrHi.innerHTML = "Last guess was to low!";
+                                }
+                                else if(userGuess > randomNumber)
+                                {
+                                        lowOrHi.innerHTML = "Last guess was to high!";
+                                }
+                        }
+
+                        guessCount++;
+                        guessField.value = "";
+                        guessField.focus(); 
+
                 }
+                else
+                {
+                        guessField.value = "";
+                        guessField.focus(); 
+                        window.alert("Invalid Input");
+                }
+       		
+       	}
 
-        	function resetGame()
-        	{
-        		guessCount = 1;
-        		var resetParas = document.querySelectorAll('.resultParas p');
-        		for (var i = 0; i < resetParas.length; i++)
-        		{
-        			resetParas[i].textContent = "";
-        		}
+        function setGameOver()
+        {
+                guessField.disabled = true;
+                guessSubmit.disabled = true;
+                resetButton.style.display = "inline";
+                resetButton.addEventListener("click", resetGame);
+                wonLostText ="Games Won: " + gamesWon +" Games Lost: " + gamesLost;
+                wonLostDisplay.innerHTML = wonLostText;
+        }
 
-        		resetButton.style.display = "none";
+       	function resetGame()
+       	{
+       		guessCount = 1;
+       		var resetParas = document.querySelectorAll('.resultParas p');
+       		for (var i = 0; i < resetParas.length; i++)
+       		{
+       			resetParas[i].textContent = "";
+       		}
+       		resetButton.style.display = "none";
+       		guessField.disabled = false;
+      		guessSubmit.disabled = false;
+   		guessField.value = "";
+	        guessField.focus();
 
-        		guessField.disabled = false;
-        		guessSubmit.disabled = false;
-        		guessField.value = "";
-        		guessField.focus();
+	        //lastResult.sytle.backgroundColor = "white";
 
-        		lastResult.sytle.backgroundColor = "white";
+	        randomNumber = Math.floor(Math.random() * 99) -1;
 
-        		randomNumber = Math.floor(Math.random() * 99) -1;
-        	}
+                //console.log(wonLostText);
+                wonLostDisplay.innerHTML = wonLostText;
+        }
 
-        	guessSubmit.addEventListener("click",checkGuess);
+guessSubmit.addEventListener("click",checkGuess);
         	
