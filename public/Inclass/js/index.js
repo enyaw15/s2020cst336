@@ -1,5 +1,4 @@
 
-$('div').css("backgroud-color", "purple");
+$('div').css("background", "purple");
 $('.highlight').css("width", "200px");
-$('#third').css("border-width","2px" );
-$('#third').css("border-color", "orange");
+$('#third').css("border", "2px solid orange");
