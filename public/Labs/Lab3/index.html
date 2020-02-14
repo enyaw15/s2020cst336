@@ -22,6 +22,9 @@
                     //changes the clicked background to #FFFF00
                     $(this).css("background","rgb(255, 255, 0)");
                 });
+
+                //global variables
+                var attempts = localStorage.getItem("total_attempts");
                 
                //displays the choices for question 4 in a random order
                displayQ4Choices();
@@ -89,7 +92,23 @@
                     {
                         wrongAnswer(5);
                     }
-                    $("#totalScore").html('Total Score: ' + score);
+                    
+                    if(score<80)
+                    {
+                        $("#totalScore").attr("class", "bg-warning text-white");
+                        $("#scoreMessage").html("")
+                        $("#scoreMessage").attr("class", "");
+                    }
+                    else
+                    {
+                        $("#totalScore").attr("class", "bg-success text-white");
+                        $("#scoreMessage").html("Congratulations!")
+                        $("#scoreMessage").attr("class", "bg-success text-white");
+                    }
+                    $("#totalScore").html(`Total Score:  ${score}`);
+
+                    $("#totalAttempts").html(`Total Attempts: ${++attempts}`);
+                    localStorage.setItem("total_attempts", attempts);
                 }
                 
                 //makes sure question 1 was answerd
@@ -193,5 +212,7 @@
         <br/>
         <h2 id = "totalScore" class = "text-info"></h2>
         
+        <h4 id = "scoreMessage"></h4>
+        <h3 id = "totalAttempts"></h3>
     </body>
 </html>
