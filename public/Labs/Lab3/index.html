@@ -41,6 +41,8 @@
                     let q1Response = $("#q1").val().toLowerCase();
                     let q2Response = $("#q2").val();
                     let q4Response = $("input[name=q4]:checked").val();
+                    let q6Response = $("#q6").val().toLowerCase();
+                    let q7Response = $("#q7").val();
                     
                     //question 1
                     if(q1Response === "sacramento")
@@ -92,7 +94,37 @@
                     {
                         wrongAnswer(5);
                     }
-                    
+                    //qustion 6
+                    if(q6Response === "los angeles")
+                    {
+                        correctAnswer(6);
+                        score+=20;
+                    }
+                    else
+                    {
+                        wrongAnswer(6);
+                    }
+                    //question 7
+                    if(q7Response === "sm")
+                    {
+                        correctAnswer(7)
+                        score+=20;
+                    }
+                    else
+                    {
+                        wrongAnswer(7)
+                    }
+                    //question 8
+                    if($("#Nevada").is(":checked") && $("#Oregon").is(":checked")  && !$("#Washington").is(":checked")  && !$("#Utah").is(":checked") )
+                    {
+                        correctAnswer(8);
+                        score+=20;
+                    }
+                    else
+                    {
+                        wrongAnswer(8);
+                    }
+
                     if(score<80)
                     {
                         $("#totalScore").attr("class", "bg-warning text-white");
@@ -205,7 +237,34 @@
         <br/>
         <div id = "q5Feedback"></div>
         <br/>
+<!---->
+        <h3><span id = "markImg6"></span>What is the largest city in California?</h3>
+        <input type="text" id = "q6"/>
+        <br/>
+        <div id = "q6Feedback"></div>
+        <br/>
         
+        <h3><span id = "markImg7"></span>Which bridge is the longest</h3>
+        <select id = "q7">
+            <option value = "">Select one</option>
+            <option value = "gg">Golden Gate</option>
+            <option value = "sm">San Mateo</option>
+            <option value = "bc">Bixby Creek</option>
+            <option value = "bb">Bay Bridge</option>
+        </select>
+        <br/>
+        <div id = "q7Feedback"></div>
+        <br/>
+        
+        <h3><span id = "markImg8"></span>Which states border California?</h3>
+        <input type = "checkbox" id = "Nevada"> <label for="Nevada">A. Nevada</label>
+        <input type = "checkbox" id = "Washington"> <label for="Washington">B. Washington</label>
+        <input type = "checkbox" id = "Oregon"> <label for="Oregon">C. Oregon</label>
+        <input type = "checkbox" id = "Utah"> <label for="Utah">D. Utah</label>
+        <br/>
+        <div id = "q8Feedback"></div>
+        <br/>
+<!---->        
         <h3 id="validationfdbk" class = "bg-danger text-white"></h3>
         
         <button type="button" class="btn btn-outline-primary">Submit Quiz</button>
