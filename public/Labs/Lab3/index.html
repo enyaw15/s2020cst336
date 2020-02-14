@@ -6,11 +6,25 @@
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- import jquery -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <!-- import underscore.js-->
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js" ></script> 
         <script type="text/javascript">
             $(document).ready(function()
             {
-                
+                //event listener for the submit button  
                $("button").on("click",gradeQuiz);
+
+                //event listener for the 5th question
+                $(".q5Choice").on("click", function()
+                {
+                    //changes all the backgrounds to blank 
+                    $(".q5Choice").css("background","");
+                    //changes the clicked background to #FFFF00
+                    $(this).css("background","rgb(255, 255, 0)");
+                });
+                
+               //displays the choices for question 4 in a random order
+               displayQ4Choices();
                
                 function gradeQuiz()
                 {
@@ -25,6 +39,7 @@
                     let q2Response = $("#q2").val();
                     let q4Response = $("input[name=q4]:checked").val();
                     
+                    //question 1
                     if(q1Response === "sacramento")
                     {
                         correctAnswer(1);
@@ -34,7 +49,7 @@
                     {
                         wrongAnswer(1);
                     }
-                    
+                    //question 2
                     if(q2Response === "ms")
                     {
                         correctAnswer(2)
@@ -44,7 +59,7 @@
                     {
                         wrongAnswer(2)
                     }
-                    
+                    //question 3
                     if($("#Jefferson").is(":checked") && $("#Roosevelt").is(":checked")  && !$("#Jackson").is(":checked")  && !$("#Franklin").is(":checked") )
                     {
                         correctAnswer(3);
@@ -54,7 +69,7 @@
                     {
                         wrongAnswer(3);
                     }
-                    
+                    //question 4
                     if(q4Response === "Rhode Island")
                     {
                         correctAnswer(4);
@@ -64,9 +79,20 @@
                     {
                         wrongAnswer(4);
                     }
+                    //question 5
+                    if($("#seal2").css("background-color") === "rgb(255, 255, 0)")
+                    {
+                        correctAnswer(5);
+                        score+=20;
+                    }
+                    else
+                    {
+                        wrongAnswer(5);
+                    }
                     $("#totalScore").html('Total Score: ' + score);
                 }
                 
+                //makes sure question 1 was answerd
                 function isFormValid()
                 {
                     let isValid = true;
@@ -79,6 +105,7 @@
                     return isValid;
                 }
                 
+                //changes page for the correct answer
                 function correctAnswer(index)
                 {
                     $(`#q${index}Feedback`).html("Correct");
@@ -86,11 +113,25 @@
                     $(`#markImg${index}`).html("<img src = 'img/checkmark.png' alt = 'checkmark'/>");
                 }
                 
+                //changes page for incorect answers
                 function wrongAnswer(index)
                 {
                         $(`#q${index}Feedback`).html("Incorrect");
                         $(`#q${index}Feedback`).attr("class", "bg-warning text-white");
                         $(`#markImg${index}`).html("<img src = 'img/xmark.png' alt = 'xmark'/>");
+                }
+
+                //displays the answers for q4 in a random order
+                function displayQ4Choices()
+                {
+                    let q4ChoicesArray = ["Maine","Rhode Island","Maryland", "Delaware"];
+                    //shuffle the array
+                    q4ChoicesArray = _.shuffle(q4ChoicesArray);
+                    //display choices
+                    for(let i = 0; i < q4ChoicesArray.length; i++)
+                    {
+                        $("#q4Choices").append(`<input type="radio" name="q4" id="${q4ChoicesArray[i]}" value="${q4ChoicesArray[i]}"> <label for="${q4ChoicesArray[i]}"> ${q4ChoicesArray[i]}</label>`)
+                    }
                 }
             });
         </script>
@@ -127,12 +168,23 @@
         <br/>
         
         <h3><span id = "markImg4"></span>What is the smallest state?</h3>
+        <div id="q4Choices"></div>
+        <!--
         <input type = "radio" name = "q4" id = "me" value = "Maine"> <label for="me">Maine</label>
         <input type = "radio" name = "q4" id = "ri" value = "Rhode Island"> <label for="ri">Rhode Island</label>
         <input type = "radio" name = "q4" id = "md" value = "Maryland"> <label for="md">Maryland</label>
         <input type = "radio" name = "q4" id = "de" value = "Delaware"> <label for="de">Delaware</label>
+        -->
         <br/>
         <div id = "q4Feedback"></div>
+        <br/>
+
+        <h3><span id = "markImg5"></span>What image is in the Great Seal of the State of California?</h3>
+        <img src="img/seal1.png" alt = "Seal 1" class = "q5Choice" id="seal1">
+        <img src="img/seal2.png" alt = "Seal 2" class = "q5Choice" id="seal2">
+        <img src="img/seal3.png" alt = "Seal 3" class = "q5Choice" id="seal3">
+        <br/>
+        <div id = "q5Feedback"></div>
         <br/>
         
         <h3 id="validationfdbk" class = "bg-danger text-white"></h3>
