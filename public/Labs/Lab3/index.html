@@ -1,11 +1,145 @@
 <!DOCTYPE html>
 <html lang ='en'>
     <head>
-        
+        <title>Lab 3</title>
+        <!-- import bootstrap -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- import jquery -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            $(document).ready(function()
+            {
+                
+               $("button").on("click",gradeQuiz);
+               
+                function gradeQuiz()
+                {
+                    $("#validationfdbk").html("");
+                    if(!isFormValid())
+                    {
+                        return;
+                    }
+                    
+                    let score = 0;
+                    let q1Response = $("#q1").val().toLowerCase();
+                    let q2Response = $("#q2").val();
+                    let q4Response = $("input[name=q4]:checked").val();
+                    
+                    if(q1Response === "sacramento")
+                    {
+                        correctAnswer(1);
+                        score+=20;
+                    }
+                    else
+                    {
+                        wrongAnswer(1);
+                    }
+                    
+                    if(q2Response === "ms")
+                    {
+                        correctAnswer(2)
+                        score+=20;
+                    }
+                    else
+                    {
+                        wrongAnswer(2)
+                    }
+                    
+                    if($("#Jefferson").is(":checked") && $("#Roosevelt").is(":checked")  && !$("#Jackson").is(":checked")  && !$("#Franklin").is(":checked") )
+                    {
+                        correctAnswer(3);
+                        score+=20;
+                    }
+                    else
+                    {
+                        wrongAnswer(3);
+                    }
+                    
+                    if(q4Response === "Rhode Island")
+                    {
+                        correctAnswer(4);
+                        score +=20;
+                    }
+                    else
+                    {
+                        wrongAnswer(4);
+                    }
+                    $("#totalScore").html('Total Score: ' + score);
+                }
+                
+                function isFormValid()
+                {
+                    let isValid = true;
+                    if($("#q1").val() === "")
+                    {
+                        isValid = false;
+                        $("#validationfdbk").html("Question 1 was not answered");
+                    }
+                    
+                    return isValid;
+                }
+                
+                function correctAnswer(index)
+                {
+                    $(`#q${index}Feedback`).html("Correct");
+                    $(`#q${index}Feedback`).attr("class", "bg-success text-white");
+                    $(`#markImg${index}`).html("<img src = 'img/checkmark.png' alt = 'checkmark'/>");
+                }
+                
+                function wrongAnswer(index)
+                {
+                        $(`#q${index}Feedback`).html("Incorrect");
+                        $(`#q${index}Feedback`).attr("class", "bg-warning text-white");
+                        $(`#markImg${index}`).html("<img src = 'img/xmark.png' alt = 'xmark'/>");
+                }
+            });
+        </script>
     </head>
-    <body>
+    <body class = "text-center">
+        
+        <h1 class = "jumbotron" >US Geography Quiz</h1>
+        
+        <h3><span id = "markImg1"></span>What is the capital of California?</h3>
+        <input type="text" id = "q1"/>
+        <br/>
+        <div id = "q1Feedback"></div>
+        <br/>
+        
+        <h3><span id = "markImg2"></span>What is the longest river?</h3>
+        <select id = "q2">
+            <option value = "">Select one</option>
+            <option value = "ms">Mississippi</option>
+            <option value = "mo">Missouri</option>
+            <option value = "co">Colorado</option>
+            <option value = "de">Delaware</option>
+        </select>
+        <br/>
+        <div id = "q2Feedback"></div>
+        <br/>
+        
+        <h3><span id = "markImg3"></span>What Presidents are carved into Mount Rushmore?</h3>
+        <input type = "checkbox" id = "Jackson"> <label for="Jackson">A. Jackson</label>
+        <input type = "checkbox" id = "Franklin"> <label for="Franklin">B. Franklin</label>
+        <input type = "checkbox" id = "Jefferson"> <label for="Jefferson">C. Jefferson</label>
+        <input type = "checkbox" id = "Roosevelt"> <label for="Roosevelt">D. Roosevelt</label>
+        <br/>
+        <div id = "q3Feedback"></div>
+        <br/>
+        
+        <h3><span id = "markImg4"></span>What is the smallest state?</h3>
+        <input type = "radio" name = "q4" id = "me"> <label for="me">Maine</label>
+        <input type = "radio" name = "q4" id = "ri"> <label for="ri">Rhode Island</label>
+        <input type = "radio" name = "q4" id = "md"> <label for="md">Maryland</label>
+        <input type = "radio" name = "q4" id = "de"> <label for="de">Delaware</label>
+        <br/>
+        <div id = "q4Feedback"></div>
+        <br/>
+        
+        <h3 id="validationfdbk" class = "bg-danger text-white"></h3>
+        
+        <button type="button" class="btn btn-outline-primary">Submit Quiz</button>
+        <br/>
+        <h2 id = "totalScore" class = "text-info"></h2>
         
     </body>
 </html>
