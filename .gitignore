@@ -1,7 +1,5 @@
 #vscode workspace
-.code-workspace
-.code
-.code*
+*.code-workspace
 
 #word docs
 *.docx
