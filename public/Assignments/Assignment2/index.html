@@ -13,24 +13,56 @@
     <body class = "text-center">
         <div class="container">
             <h1 class="jumbotron">Shopping Cart</h1>
-        </div>
-            <div class = "col">
-            <div class = "item-display col-6">
-                <img src="" alt = "item image"></img>
-                <p class = "item-description">Lorem Ipsum</p>
-                <p class = "item-price">$10</p>
-                <input type="text" id="item-quantity-1" value="0"/>
+        
+            <div class = "row">
+                <div class = "item-display col-6">
+                    <img src="" alt = "item image"></img>
+                    <p id = "item-1-name" >thigifier</p>
+                    <p>this is what a thigifier is</p>
+                    <p id = "item-1-price" >$10</p>
+                    <label for="item-quantity-1">Quantity: </label>
+                    <input type="text" id="item-quantity-1" value="0"/>
+                    <br/>
+                    <Button id = "item-1-add-btn" type = "button" class = "btn btn-outline-primary">Set Quantity</Button>
+                </div>
+                <div class = "item-display col-6">
+                    <img src="" alt = "item image"></img>
+                    <p id = "item-2-name">thingy</p>
+                    <p>This is what a thingy is</p>
+                    <p id = "item-2-price">$12</p>
+                    <label for="item-quantity-2">Quantity: </label>
+                    <input type="text" id="item-quantity-2" value="0"/>
+                    <br/>
+                    <Button id = "item-2-add-btn" type = "button" class = "btn btn-outline-primary">Set Quantity</Button>
+                    
+                </div>
             </div>
-            <div class = "item-display col-6">
-                <img src="" alt = "item image"></img>
-                <p class = "item-description">Lorem Ipsum</p>
-                <p class = "item-price">$12</p>
-                <input type="text" id="item-quantity-1" value="0"/>
+            <div id = "cart" >
+                <br/>
+                <h3>Cart:</h3>
+                <div class = "row">
+                    <div class = "cart-display col-6" hidden>
+                        <p>item name</p>
+                        <p>item price</p>
+                        <p>item Quantity</p>
+                        <p>item total</p>
+                    </div>
+                    <div class = "cart-display col-6" hidden>
+                        <p>item name</p>
+                        <p>item price</p>
+                        <p>item Quantity</p>
+                        <p>item total</p>
+                    </div>
+                </div>
+                <strong id = "cart-total">Total $0.00</strong>
+                <br/>
+                <button type="button" class="btn btn-success" >Purchase</button>
             </div>
         </div>
+
         
-        <button type="button" class="btn btn-outline-primary">Purchase</button>
         
         
+        <script src = "js/app.js"></script>
     </body>
 </html>
