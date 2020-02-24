@@ -9,6 +9,15 @@ body {
     color: midnightblue
 }
 
+img{
+    border: 10px solid salmon;
+}
+
+
+hr {
+    border: 3px dashed salmon;
+}
+
 .item-display{
     color: navy;
     font-size: 1.2em;
@@ -25,3 +34,12 @@ footer {
     font-size: .8em;
     color: darkcyan;
 }
+
+input[type=text] {
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid salmon;
+    border-radius: 3px;
+    background-color: #ffdddd;
+  }
