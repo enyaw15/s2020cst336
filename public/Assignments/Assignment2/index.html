@@ -16,22 +16,22 @@
         
             <div class = "row">
                 <div class = "item-display col-6">
-                    <img src="" alt = "item image"></img>
-                    <p id = "item-1-name" >thigifier</p>
-                    <p>this is what a thigifier is</p>
-                    <p id = "item-1-price" >$10</p>
-                    <label for="item-quantity-1">Quantity: </label>
-                    <input type="text" id="item-quantity-1" value="0"/>
+                    <img src="img/waterBottle.jpg" alt = "picture of a water bottle"></img>
+                    <p id = "item-1-name" >Water Bottle</p>
+                    <p>This premium water bottle comes in any color as long as that color is red. It will keep your water from spoiling forever.</p>
+                    <p id = "item-1-price">$100.00</p>
+                    <label for="item-1-quantity">Quantity: </label>
+                    <input type="text" id="item-1-quantity" value="0"/>
                     <br/>
                     <Button id = "item-1-add-btn" type = "button" class = "btn btn-outline-primary">Set Quantity</Button>
                 </div>
                 <div class = "item-display col-6">
-                    <img src="" alt = "item image"></img>
-                    <p id = "item-2-name">thingy</p>
-                    <p>This is what a thingy is</p>
-                    <p id = "item-2-price">$12</p>
-                    <label for="item-quantity-2">Quantity: </label>
-                    <input type="text" id="item-quantity-2" value="0"/>
+                    <img src="img/sandwich.jpg" alt = "picture of a sandwich"></img>
+                    <p>Sandwich</p>
+                    <p>This premium sandwich will satisfy your hunger. 100% garunteed to be fresh upon delivery.</p>
+                    <p>$12.00</p>
+                    <label for="item-2-quantity">Quantity: </label>
+                    <input type="text" id="item-2-quantity" value="0"/>
                     <br/>
                     <Button id = "item-2-add-btn" type = "button" class = "btn btn-outline-primary">Set Quantity</Button>
                     
@@ -41,17 +41,17 @@
                 <br/>
                 <h3>Cart:</h3>
                 <div class = "row">
-                    <div class = "cart-display col-6" hidden>
-                        <p>item name</p>
-                        <p>item price</p>
-                        <p>item Quantity</p>
-                        <p>item total</p>
+                    <div id = "item-1-cart" class = "cart-display col-6" hidden>
+                        <p>Name: Water Bottle</p>
+                        <p>Price: $100.00</p>
+                        <p id = "item-1-cart-quantity">Quantity: </p>
+                        <p id = "item-1-cart-total">Total: $</p>
                     </div>
-                    <div class = "cart-display col-6" hidden>
-                        <p>item name</p>
-                        <p>item price</p>
-                        <p>item Quantity</p>
-                        <p>item total</p>
+                    <div id = "item-2-cart" class = "cart-display col-6" hidden>
+                        <p>Name: Sandwich</p>
+                        <p>Price: $12.00</p>
+                        <p id = "item-2-cart-quantity">Quantity: </p>
+                        <p id = "item-2-cart-total">Total: $</p>
                     </div>
                 </div>
                 <strong id = "cart-total">Total $0.00</strong>
