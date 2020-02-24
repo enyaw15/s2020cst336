@@ -34,3 +34,12 @@ $("#item-2-add-btn").on("click",function()
 
     updateCartTotal();
 });
+
+$("#purchase").on("click",function()
+{
+    alert("Sorry! All items out of stock!");
+    $("#item-1-quantity").val(0);
+    $("#item-2-quantity").val(0);
+    $("#item-1-cart").attr("hidden","");
+    $("#item-2-cart").attr("hidden","");
+});
