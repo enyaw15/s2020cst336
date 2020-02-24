@@ -21,6 +21,7 @@ $("#item-1-add-btn").on("click",function()
     
     updateCartTotal();
 });
+
 $("#item-2-add-btn").on("click",function()
 {
     let itemQuantity = $("#item-2-quantity").val();
@@ -42,4 +43,7 @@ $("#purchase").on("click",function()
     $("#item-2-quantity").val(0);
     $("#item-1-cart").attr("hidden","");
     $("#item-2-cart").attr("hidden","");
+    item1Total = 0;
+    item2Total = 0;
+    updateCartTotal();
 });
