@@ -5,7 +5,7 @@ var item2Total = 0;
 function updateCartTotal()
 {
     total = item1Total + item2Total;
-    $("#cart-total").html(`<Strong>Total: $${total}</Strong>`);
+    $("#cart-total").html(`Total: $${total}`);
 };
 
 $("#item-1-add-btn").on("click",function()

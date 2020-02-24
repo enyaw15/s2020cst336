@@ -5,3 +5,7 @@ body{
 .jumbotron{
     background-color: crimson;
 }
+
+#item-cart{
+    color: chartreuse;
+}
