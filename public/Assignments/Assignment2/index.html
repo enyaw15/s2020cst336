@@ -3,23 +3,23 @@
     <head>
         <title>Wayne Hayden Assignment 2</title>
         <meta charset="utf-8">
+        <!-- import bootstrap -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
         <!--css file-->
         <link rel="stylesheet" href="css/styles.css" type="text/css" />
-        <!-- import bootstrap -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- import jquery -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     </head>
-    <body class = "text-center">
+    <body>
         <div class="container">
             <h1 class="jumbotron">Shopping Cart</h1>
         
             <div class = "row">
                 <div class = "item-display col-6">
                     <img src="img/waterBottle.jpg" alt = "picture of a water bottle"></img>
-                    <p id = "item-1-name" >Water Bottle</p>
+                    <p>Water Bottle</p>
                     <p>This premium water bottle comes in any color as long as that color is red. It will keep your water from spoiling forever.</p>
-                    <p id = "item-1-price">$100.00</p>
+                    <p>$100.00</p>
                     <label for="item-1-quantity">Quantity: </label>
                     <input type="text" id="item-1-quantity" value="0"/>
                     <br/>
@@ -60,8 +60,10 @@
             </section>
         </div>
 
-        
-        
+	    <footer>
+    		<hr/>
+    		<p> CST336 Internet Programming. Copyright 2020&copy; Hayden</p>
+    	</footer>
         
         <script src = "js/app.js"></script>
     </body>

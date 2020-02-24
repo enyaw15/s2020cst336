@@ -1,11 +1,27 @@
-body{
-    background-color: crimson;
-}
+
+body { 
+    text-align: center;
+	background-color: bisque;
+ }
 
 .jumbotron{
-    background-color: crimson;
+    background-color: cornflowerblue;
+    color: midnightblue
 }
 
-#item-cart{
-    color: chartreuse;
+.item-display{
+    color: navy;
+    font-size: 1.2em;
+}
+
+#cart{
+    color: green;
+    font-size: 1.2em
+}
+ 
+footer {
+    clear : left;
+    text-align: center;
+    font-size: .8em;
+    color: darkcyan;
 }
