@@ -1,0 +1,19 @@
+body { 
+    background-color: darkblue;
+    color: aquamarine;
+}
+
+.jumbotron{
+    background-color: midnightblue;
+    border: 2px solid black;
+}
+
+
+input[type=text], input[type=password], select{
+    padding: 5px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 3px;
+    background-color:slateblue;
+  }
