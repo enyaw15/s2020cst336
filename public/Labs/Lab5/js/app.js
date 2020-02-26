@@ -10,7 +10,7 @@ $("#search").on("click",function()
         method: "GET",
         url: "https://pixabay.com/api/",
         dataType: "json",
-        data: { "key" :"15401070-3f0e62fc6ef63c9390f6fb50d" , "q": keyword, "orientation" : orientation},
+        data: { "key" :"15401070-3f0e62fc6ef63c9390f6fb50d" , "q": keyword, "orientation" : orientation, "safesearch" : true},
         success: function(result,status)
         {
             let data = result.hits;
@@ -22,7 +22,7 @@ $("#search").on("click",function()
             for(var i = 0; i < 4; i++)
             {
                 let img = data[Math.floor(Math.random()*data.length)];
-                imageDisplay.append(`<div class = "col-sm"><img src = '${img.previewURL}' width = '${img.previewWidth}' height = '${img.previewHeight}'/></div>`);
+                imageDisplay.append(`<div class = "col-sm">Likes: ${img.likes}<img src = '${img.previewURL}' width = '${img.previewWidth}' height = '${img.previewHeight}'/></div>`);
             }
         },
         error(err)
