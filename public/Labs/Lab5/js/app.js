@@ -14,9 +14,16 @@ $("#search").on("click",function()
         success: function(result,status)
         {
             let data = result.hits;
+            /*
             data.forEach(function(img){
                 imageDisplay.append(`<div class = "col-sm"><img src = '${img.previewURL}' width = '${img.previewWidth}' height = '${img.previewHeight}'/></div>`);
             });
+            */
+            for(var i = 0; i < 4; i++)
+            {
+                let img = data[Math.floor(Math.random()*data.length)];
+                imageDisplay.append(`<div class = "col-sm"><img src = '${img.previewURL}' width = '${img.previewWidth}' height = '${img.previewHeight}'/></div>`);
+            }
         },
         error(err)
         {
