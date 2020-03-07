@@ -1,0 +1,56 @@
+body{
+    background-color:#333333;
+}
+
+label{
+    font-size: 1.2em;
+}
+
+.jumbotron{
+    background-color: #eeeeee;
+}
+
+input[type = text]{
+    background-color: #eeeeee;
+    border: solid 1px #333333;
+}
+
+input[type = range]{
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 25%; /* Full-width */
+    height: 5px; /* Specified height */
+    background: #555555; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    margin-top: 5px;
+}
+/* Mouse-over effects */
+input[type = range]:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+  
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+input[type = range]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 10px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #333333;
+    cursor: pointer; /* Cursor on hover */
+}
+
+.image-info{
+    background-color: #555555;
+    border: solid #333333 2px;
+}
+.image-info p{
+    color: antiquewhite;
+}
+.image-info img{
+    border: solid 2px black;
+    width: 100%;
+    margin : 5px;
+}
